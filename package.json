@@ -1,0 +1,31 @@
+{
+  "name": "alfred-btdigg-workflow",
+  "version": "0.1.0",
+  "description": "workflow script for digg search for alfred v2.",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^2.1.1",
+    "jsdom": "^1.0.0-pre.6",
+    "socks5-http-client": "^0.1.6",
+    "request": "^2.42.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rehorn/alfred-btdigg-workflow.git"
+  },
+  "keywords": [
+    "workflow",
+    "alfred"
+  ],
+  "author": "rehornchen@tencent.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rehorn/alfred-btdigg-workflow/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  }
+}
