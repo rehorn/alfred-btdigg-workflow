@@ -1,3 +1,3 @@
 ### alfred-btdigg-workflow
 ----
-workflow script for digg search for alfred v2
+workflow script for btdigg search for alfred v2
