@@ -1,6 +1,6 @@
 {
     "name": "alfred-btdigg-workflow",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "workflow script for digg search for alfred v2.",
     "main": "index.js",
     "dependencies": {
