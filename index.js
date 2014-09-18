@@ -1,6 +1,6 @@
 var socks5Agent = require('socks5-http-client/lib/Agent');
 var request = require('request');
-var env = require('jsdom').env;
+var cheerio = require('cheerio');
 
 if (!String.prototype.encodeHTML) {
     String.prototype.encodeHTML = function() {
@@ -54,34 +54,32 @@ if (!String.prototype.encodeHTML) {
                 }];
                 return console.log(toXml(items));
             } else {
-                env(res.body, function(err, window) {
-                    var $ = require('jquery')(window);
-                    var container = $('#search_res').children('table').children('tbody').children('tr');
-                    var items = [];
-                    container.each(function() {
-                        var name = $('.torrent_name:first', this).text();
-                        var link = $('.torrent_name_tbl .ttth a:first', this).attr('href');
-                        var tr = $('.torrent_name_tbl:eq(1) tr:first');
-                        var attrsArr = [];
-                        var item = {
-                            name: name,
-                            link: link
-                        };
-                        $('td', tr).each(function(idx, el) {
-                            if (idx > 1 && idx < 5) {
-                                var attr = {
-                                    name: $('.attr_name', el).text(),
-                                    val: $('.attr_val', el).text()
-                                };
-                                attrsArr.push(attr);
-                            }
-                        });
-                        item.attrs = attrsArr;
-                        items.push(item);
+                var $ = cheerio.load(res.body);
+                var container = $('#search_res').children('table').children('tr');
+                var items = [];
+                container.each(function() {
+                    var name = $('.torrent_name', this).first().text();
+                    var link = $('.torrent_name_tbl .ttth a', this).first().attr('href');
+                    var tr = $('.torrent_name_tbl').eq(1).children('tr').first();
+                    var attrsArr = [];
+                    var item = {
+                        name: name,
+                        link: link
+                    };
+                    $('td', tr).each(function(idx, el) {
+                        if (idx > 1 && idx < 5) {
+                            var attr = {
+                                name: $('.attr_name', el).text(),
+                                val: $('.attr_val', el).text()
+                            };
+                            attrsArr.push(attr);
+                        }
                     });
-                    // console.log(items)
-                    return console.log(toXml(items));
+                    item.attrs = attrsArr;
+                    items.push(item);
                 });
+                // console.log(items)
+                return console.log(toXml(items));
             }
         });
     });

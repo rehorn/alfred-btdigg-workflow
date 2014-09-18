@@ -1,13 +1,12 @@
 {
     "name": "alfred-btdigg-workflow",
-    "version": "0.1.2",
+    "version": "0.2.1",
     "description": "workflow script for digg search for alfred v2.",
     "main": "index.js",
     "dependencies": {
-        "jquery": "^2.1.1",
-        "jsdom": "^1.0.0-pre.6",
         "socks5-http-client": "^0.1.6",
-        "request": "^2.42.0"
+        "request": "^2.42.0",
+        "cheerio": "^0.17.0"
     },
     "scripts": {
         "test": "mocha"
