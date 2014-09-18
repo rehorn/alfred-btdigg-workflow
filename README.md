@@ -11,7 +11,7 @@ workflow script for btdigg search for alfred v2
 * download [Btdigg Link Copy.alfredworkflow](https://github.com/rehorn/alfred-btdigg-workflow/blob/master/Btdigg%20Link%20Copy.alfredworkflow?raw=true)
 * double click
 
-### issues: btdigg can't visit directly due to some reasons, proxy needed!
+### issues: proxy needed to visit btdigg!
 * open alfred v2 preference -> workflow tab
 * select "Btdigg Link Copy" workflow
 * double click 'bt' script filter node -> Open workflow folder
